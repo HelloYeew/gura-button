@@ -7,7 +7,7 @@ export class GuraButton extends LitElement {
     src = ''
 
     @property({ type : 'number'})
-    time = 0
+    time = 2
 
     @internalProperty()
     isPlaying = false
@@ -26,34 +26,39 @@ export class GuraButton extends LitElement {
         sound.onplaying = () => {
             setTimeout(() => {
                 this.isPlaying = false
-            }, this.time * 1000+750)
+            }, this.time * 1000 + 750)
+
             if ('mediaSession' in navigator) {
                 // @ts-ignore
-                navigator.mediaSession.setActiveHandler('play', () => 
+                navigator.mediaSession.setActionHandler('play', () =>
                     sound.play()
                 )
+
                 // @ts-ignore
-                navigator.mediaSession.setActiveHandler('pause', () => 
+                navigator.mediaSession.setActionHandler('pause', () =>
                     sound.pause()
                 )
+
                 // @ts-ignore
-                navigator.mediaSession.setActiveHandler(
+                navigator.mediaSession.setActionHandler(
                     'seekbackward',
                     () => null
                 )
+
                 // @ts-ignore
-                navigator.mediaSession.setActiveHandler(
+                navigator.mediaSession.setActionHandler(
                     'seekforward',
                     () => null
                 )
+
                 // @ts-ignore
-                navigator.mediaSession.setActiveHandler(
+                navigator.mediaSession.setActionHandler(
                     'previoustrack',
                     () => null
                 )
 
                 // @ts-ignore
-                navigator.mediaSession.setActiveHandler('nexttrack', () => null)
+                navigator.mediaSession.setActionHandler('nexttrack', () => null)
             }
         }
     }
