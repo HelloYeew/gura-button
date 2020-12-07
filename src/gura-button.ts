@@ -24,18 +24,34 @@ export class GuraButton extends LitElement {
         sound.play()
 
         sound.onplaying = () => {
-            setTimeout(() => {this.isPlaying = false}, this.time * 1000+750)
+            setTimeout(() => {
+                this.isPlaying = false
+            }, this.time * 1000+750)
             if ('mediaSession' in navigator) {
                 // @ts-ignore
-                navigator.mediaSession.setActiveHandler('play', () => sound.play)
+                navigator.mediaSession.setActiveHandler('play', () => 
+                    sound.play()
+                )
                 // @ts-ignore
-                navigator.mediaSession.setActiveHandler('pause', () => sound.pause)
+                navigator.mediaSession.setActiveHandler('pause', () => 
+                    sound.pause()
+                )
                 // @ts-ignore
-                navigator.mediaSession.setActiveHandler('seekbackward', () => null)
+                navigator.mediaSession.setActiveHandler(
+                    'seekbackward',
+                    () => null
+                )
                 // @ts-ignore
-                navigator.mediaSession.setActiveHandler('seekforward', () => null)
+                navigator.mediaSession.setActiveHandler(
+                    'seekforward',
+                    () => null
+                )
                 // @ts-ignore
-                navigator.mediaSession.setActiveHandler('previoustrack', () => null)
+                navigator.mediaSession.setActiveHandler(
+                    'previoustrack',
+                    () => null
+                )
+
                 // @ts-ignore
                 navigator.mediaSession.setActiveHandler('nexttrack', () => null)
             }
