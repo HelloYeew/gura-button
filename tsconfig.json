@@ -1,15 +1,3 @@
-// {
-//     "include": ["src", "types"],
-//     "exclude": ["node_modules"],
-//     "compilerOptions": {
-//         // for Snowpack
-//         "paths": {},
-//         "noEmit": true,
-//         // for LitElement
-//         "experimentalDecorators": false,
-//         "emitDecoratorMetadata": true
-//     }
-// }
 {
     "include": ["src", "types"],
     "exclude": ["node_modules"],
