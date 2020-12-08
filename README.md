@@ -8,4 +8,4 @@ A website that you can span 'a' and more sound from Gura.
 *coming soon*
 
 a
-![gura](gura.png)
+![gura](public/gura.png)
